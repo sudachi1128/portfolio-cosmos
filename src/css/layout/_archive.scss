@@ -1,0 +1,195 @@
+@use "../global" as *;
+
+.archive {
+  @include container;
+  padding-top: calc(175vw / 375 * 100);
+  margin-bottom: calc(150vw / 375 * 100);
+  @include mq(sm) {
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: calc(175vw / 820 * 100);
+    margin-bottom: calc(150vw / 820 * 100);
+  }
+  @include mq(md) {
+    padding-top: calc(175vw / 1150 * 100);
+    margin-bottom: calc(150vw / 1150 * 100);
+  }
+  @include mq(xl) {
+    padding-top: 175px;
+    margin-bottom: 150px;
+  }
+  &__title {
+    @include page-archive-title("ニュース");
+    margin-bottom: calc(100vw / 375 * 100);
+    @include mq(sm) {
+      margin-bottom: calc(125vw / 820 * 100);
+    }
+    @include mq(md) {
+      margin-bottom: calc(125vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      margin-bottom: 125px;
+    }
+  }
+  &__list {
+    display: grid;
+    gap: calc(50vw / 375 * 100) 0;
+    @include mq(sm) {
+      gap: 4vw;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include mq(md) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  &__date-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: "Cormorant Infant", serif;
+  }
+  &__date-small {
+    font-size: calc(20vw / 375 * 100);
+    @include mq(sm) {
+      font-size: calc(20vw / 820 * 100);
+    }
+    @include mq(md) {
+      font-size: calc(20vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      font-size: 2rem;
+    }
+  }
+  &__date-big {
+    font-size: calc(100vw / 375 * 100);
+    font-weight: 500;
+    opacity: 0.08;
+    line-height: 0.8;
+    @include mq(sm) {
+      font-size: calc(100vw / 820 * 100);
+    }
+    @include mq(md) {
+      font-size: calc(100vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      font-size: 10rem;
+    }
+  }
+  &__flame {
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: calc(100% / 1.5);
+    }
+  }
+  &__flame-inner {
+    // top/right/bottom/leftの値を全て0にしてmarginをautoに指定することで、子要素を親要素の縦横ど真ん中に配置することが可能。
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__item-title {
+    font-size: calc(18vw / 375 * 100);
+    color: $text-secondary-color;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    margin: 16px 0 4px;
+    @include mq(sm) {
+      font-size: calc(18vw / 820 * 100);
+    }
+    @include mq(md) {
+      font-size: calc(18vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      font-size: 1.8rem;
+    }
+  }
+  &__item-text {
+    font-size: calc(16vw / 375 * 100);
+    @include mq(sm) {
+      font-size: calc(16vw / 820 * 100);
+    }
+    @include mq(md) {
+      font-size: calc(16vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      font-size: 1.6rem;
+    }
+  }
+  &__btn {
+    position: relative;
+    font-size: 1.8rem;
+    height: 35px;
+    margin-top: calc(80vw / 375 * 100);
+    @include mq(sm) {
+      margin-top: calc(100vw / 820 * 100);
+    }
+    @include mq(md) {
+      margin-top: calc(100vw / 1150 * 100);
+    }
+    @include mq(xl) {
+      margin-top: 100px;
+    }
+    &-left {
+      position: absolute;
+      left: 0%;
+      padding-right: 100px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(20%, 100%);
+        background: $text-primary-color;
+        width: 50px;
+        height: 1px;
+        @include mq(sm) {
+          width: 55px;
+        }
+        @include mq(md) {
+          width: 60px;
+        }
+        @include mq(lg) {
+          width: 65px;
+        }
+        @include mq(xl) {
+          width: 70px;
+        }
+      }
+    }
+    &-right {
+      position: absolute;
+      right: 0%;
+      padding-left: 100px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(-120%, 100%);
+        background: $text-primary-color;
+        width: 50px;
+        height: 1px;
+        @include mq(sm) {
+          width: 55px;
+        }
+        @include mq(md) {
+          width: 60px;
+        }
+        @include mq(lg) {
+          width: 65px;
+        }
+        @include mq(xl) {
+          width: 70px;
+        }
+      }
+    }
+  }
+}

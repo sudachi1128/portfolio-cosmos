@@ -1,0 +1,55 @@
+@use "../global" as *;
+
+.footer {
+  border-top: 1px solid $text-primary-color;
+  &__logo {
+    width: 110px;
+    margin: 25px auto 0;
+    @include mq(sm) {
+      margin: 30px auto 0;
+      width: 115px;
+    }
+    @include mq(md) {
+      width: 120px;
+    }
+    @include mq(lg) {
+      width: 125px;
+    }
+    @include mq(xl) {
+      width: 130px;
+    }
+  }
+  &__list {
+    // base.scssでline-height: 1.7;と設定しているため画像などが入っている要素は文章と違い余白目立ってしまう。そのためline-height: 0;でリセットする。
+    line-height: 0;
+    width: 150px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mq(sm) {
+      margin: 20px auto;
+      width: 180px;
+    }
+    @include mq(md) {
+      width: 210px;
+    }
+  }
+  &__item {
+    width: 20px;
+    @include mq(sm) {
+      width: 25px;
+    }
+    @include mq(md) {
+      width: 30px;
+    }
+  }
+  &__reserve {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    @include mq(md) {
+      font-size: 1.6rem;
+    }
+  }
+}

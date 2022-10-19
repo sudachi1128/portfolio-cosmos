@@ -1,0 +1,75 @@
+@use "../global" as *;
+
+.single-news {
+  @include container;
+  padding-top: 200px;
+  margin-bottom: 200px;
+  &__title {
+    @include single-title;
+  }
+  &__date {
+    text-align: center;
+    margin-bottom: 50px;
+    @include mq(sm) {
+      margin-bottom: 75px;
+    }
+    @include mq(md) {
+      margin-bottom: 100px;
+    }
+  }
+  &__img {
+    text-align: center;
+    margin-bottom: 20px;
+    @include mq(sm) {
+      margin-bottom: 35px;
+    }
+    @include mq(md) {
+      margin-bottom: 50px;
+    }
+    & img {
+      width: 95vw;
+      height: 58.71vw;
+      object-fit: cover;
+      @include mq(sm) {
+        width: 85vw;
+        height: 52.53vw;
+      }
+      @include mq(md) {
+        width: 75vw;
+        height: 46.35vw;
+      }
+      @include mq(lg) {
+        width: 65vw;
+        height: 40.17vw;
+      }
+      @include mq(xl) {
+        width: 750px;
+        height: 463.5px;
+      }
+    }
+  }
+  &__text {
+    width: 93vw;
+    letter-spacing: 0.1em;
+    margin: 0 auto;
+    @include mq(sm) {
+      font-size: 1.65rem;
+      width: 85vw;
+    }
+    @include mq(md) {
+      font-size: 1.7rem;
+      width: 75vw;
+    }
+    @include mq(lg) {
+      font-size: 1.75rem;
+      width: 65vw;
+    }
+    @include mq(xl) {
+      font-size: 1.8rem;
+      width: 750px;
+    }
+    @include mq(xxl) {
+      font-size: 1.85rem;
+    }
+  }
+}

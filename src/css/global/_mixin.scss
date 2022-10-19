@@ -1,0 +1,44 @@
+@use "variable" as *;
+
+// ブレイクポイント
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// コンテナ
+@mixin container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+// アニメーション
+@mixin animation(
+  // アニメーションの名前を定義する
+  $name,
+  // アニメーションの時間を定義する
+  $duration: 1s,
+  // アニメーション変化の度合を定義する(ease-in-out)
+  $timing-function: ease,
+  // アニメーションを開始するタイミングを定義する
+  $delay: 0s,
+  // アニメーションの繰り返し回数を定義する
+  $iteration-count: infinite,
+  // アニメーションの再生方向を定義する
+  $direction: normal,
+  // アニメーション再生中・再生後のスタイルを指定
+  $fill-mode: forwards
+) {
+  // 下記の用意記述するとanimation-XXXをまとめて設定できる
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}

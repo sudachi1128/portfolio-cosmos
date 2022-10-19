@@ -1,0 +1,157 @@
+@use "../global" as *;
+
+.page-contact {
+  @include container;
+  max-width: 740px;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  @include mq(sm) {
+    padding-top: 175px;
+    padding-bottom: 125px;
+  }
+  @include mq(md) {
+    padding-top: 200px;
+    padding-bottom: 150px;
+  }
+  &__title {
+    @include page-archive-title("お問い合わせ");
+    margin-bottom: 80px;
+    @include mq(md) {
+      margin-bottom: 105px;
+    }
+    @include mq(lg) {
+      margin-bottom: 130px;
+    }
+  }
+  &__circle-box {
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 50px;
+    @include mq(sm) {
+      max-width: 430px;
+    }
+  }
+  &__circle {
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid $text-primary-color;
+    text-align: center;
+    text-indent: 0.05em;
+    line-height: 88px;
+    @include mq(sm) {
+      font-size: 1.6rem;
+      line-height: 104px;
+      width: 100px;
+      height: 100px;
+    }
+    & span {
+      position: absolute;
+      display: inline-block;
+      font-size: 1.2rem;
+      top: 37%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__caution-text {
+    margin-bottom: 75px;
+    @include mq(sm) {
+      text-align: center;
+    }
+    & span {
+      color: $secondary-color;
+    }
+  }
+  &__confirm-text {
+    text-align: center;
+    margin-bottom: 75px;
+    display: none;
+  }
+  &__complete-text {
+    max-width: 700px;
+    margin: 0 auto;
+    @include mq(sm) {
+      margin-top: 150px;
+      margin-bottom: 50px;
+    }
+  }
+  &__item {
+    max-width: 700px;
+    margin: 0 auto 30px;
+  }
+  &__unit {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__label {
+    & span {
+      color: $secondary-color;
+    }
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid $text-primary-color;
+    margin-top: 15px;
+  }
+  &__text-area {
+    width: 100%;
+    height: 250px;
+    border: 1px solid $text-primary-color;
+    margin-top: 15px;
+  }
+  &__error {
+    color: $secondary-color;
+    font-size: 1.2rem;
+    margin-left: 6px;
+  }
+  &__btn {
+    @include btn;
+    font-size: 1.6rem;
+    margin-top: 75px;
+  }
+  &__btn-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__confirm-btn {
+    @include btn;
+    margin: 75px 0 0;
+    max-width: 170px;
+    @include mq(sm) {
+      max-width: 210px;
+    }
+    @include mq(md) {
+      max-width: 250px;
+    }
+  }
+}
+
+.mw_wp_form_input {
+  & .page-contact__circle--input {
+    background-color: $text-secondary-color;
+  }
+}
+
+.mw_wp_form_confirm {
+  & .page-contact__caution-text {
+    display: none;
+  }
+  & .page-contact__confirm-text {
+    display: block;
+  }
+  & .page-contact__circle--confirm {
+    background-color: $text-secondary-color;
+  }
+}
+
+.mw_wp_form_complete {
+  & .page-contact__circle--complete {
+    background-color: $text-secondary-color;
+  }
+}

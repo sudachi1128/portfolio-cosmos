@@ -1,0 +1,45 @@
+@use "variable" as *;
+
+@use "mixin" as *;
+
+// 一文字ずつ文字が出現(アニメーション)
+.title-character {
+  opacity: 0;
+}
+
+.js-title-animation-active {
+  & .title-character {
+    display: inline-block;
+    @include animation(
+      $name: title-animation,
+      $duration: 1s,
+      $iteration-count: 1
+    );
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.05s;
+      }
+    }
+  }
+}
+
+@keyframes title-animation {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// 要素が下からふわっと出現(アニメーション)
+.js-float-animation {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(15%);
+  &-active {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

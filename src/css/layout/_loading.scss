@@ -1,0 +1,126 @@
+@use "../global" as *;
+
+.loading {
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+  transition: all 0.75s;
+  &__box {
+    // boxを中央に
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    // ringを中央に
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__ring {
+    position: absolute;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    @include mq(sm) {
+      width: 110px;
+      height: 110px;
+    }
+    @include mq(md) {
+      width: 120px;
+      height: 120px;
+    }
+    @include mq(lg) {
+      width: 130px;
+      height: 130px;
+    }
+    @include mq(xl) {
+      width: 140px;
+      height: 140px;
+    }
+    @include mq(xxl) {
+      width: 150px;
+      height: 150px;
+    }
+    &:nth-child(1) {
+      border: 2px solid rgb(212, 38, 154);
+      @include animation(
+        $name: loading-spin-animation,
+        $duration: 6s,
+        $timing-function: linear,
+        $delay: -1s
+      );
+    }
+    &:nth-child(2) {
+      border: 2px solid rgb(255, 95, 172);
+      @include animation(
+        $name: loading-spin-animation,
+        $duration: 6s,
+        $timing-function: linear,
+        $delay: -2.5s
+      );
+    }
+    &:nth-child(3) {
+      border: 2px solid rgb(131, 15, 255);
+      @include animation(
+        $name: loading-spin-animation,
+        $duration: 6s,
+        $timing-function: linear,
+        $delay: -4s
+      );
+    }
+    &:nth-child(4) {
+      border: 2px solid rgb(99, 65, 254);
+      @include animation(
+        $name: loading-spin-animation,
+        $duration: 6s,
+        $timing-function: linear,
+        $delay: -5.5s
+      );
+    }
+  }
+}
+
+@keyframes loading-spin-animation {
+  0% {
+    transform: rotate3d(0.5, 0.5, 0.5, 360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate3d(0deg);
+  }
+}
+
+.pace {
+  position: fixed;
+  z-index: 100;
+  transition: all 0.75s;
+  font-size: 1.8rem;
+  &-progress {
+    // ローディング数値が動かないように
+    transform: none !important;
+    width: 100vw;
+    line-height: 100vh;
+    text-align: center;
+    &::after {
+      content: attr(data-progress-text);
+      display: block;
+      font-family: "Cormorant Infant", serif;
+      font-weight: 100;
+    }
+  }
+}
+
+.pace-done {
+  & .loading {
+    opacity: 0;
+    visibility: hidden;
+  }
+  & .pace {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

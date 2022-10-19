@@ -1,0 +1,124 @@
+@use "variable" as *;
+
+@use "mixin" as *;
+
+// タイトル(フロントページ)
+@mixin front-page-title {
+  position: relative;
+  font-family: "Cormorant Infant", serif;
+  font-size: 3rem;
+  color: $text-secondary-color;
+  letter-spacing: 0.15em;
+  text-indent: 0.075em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  @include mq(sm) {
+    font-size: 3.4rem;
+  }
+  @include mq(md) {
+    font-size: 3.8rem;
+  }
+  @include mq(lg) {
+    font-size: 4.2rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $text-primary-color;
+    width: 40px;
+    height: 1px;
+    @include mq(sm) {
+      width: 45px;
+    }
+    @include mq(md) {
+      width: 50px;
+    }
+  }
+}
+
+// タイトル(投稿一覧、固定ページ)
+@mixin page-archive-title($value) {
+  font-family: "Cormorant Infant", serif;
+  position: relative;
+  text-align: center;
+  font-size: 3.4rem;
+  letter-spacing: 0.2em;
+  text-indent: 0.1em;
+  @include mq(sm) {
+    font-size: 3.8rem;
+  }
+  @include mq(md) {
+    font-size: 4.2rem;
+  }
+  @include mq(lg) {
+    font-size: 4.6rem;
+  }
+  &::after {
+    content: $value;
+    font-family: "Cormorant Infant", serif;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    text-indent: 0.1em;
+    position: absolute;
+    left: 50%;
+    top: 105%;
+    transform: translate(-52%, -50%);
+    opacity: 0.3;
+    @include mq(sm) {
+      font-size: 1.2rem;
+    }
+    @include mq(md) {
+      font-size: 1.3rem;
+    }
+    @include mq(lg) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+// タイトル（個別ページ）
+@mixin single-title {
+  font-size: 2.4rem;
+  text-align: center;
+  @include mq(sm) {
+    font-size: 2.7rem;
+  }
+  @include mq(md) {
+    font-size: 3rem;
+  }
+  @include mq(lg) {
+    font-size: 3.3rem;
+  }
+  @include mq(xl) {
+    font-size: 3.6rem;
+  }
+}
+
+// ボタン
+@mixin btn {
+  display: block;
+  margin: 0 auto;
+  width: 220px;
+  height: 55px;
+  font-size: 1.8rem;
+  font-family: "Cormorant Infant", serif;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-indent: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $text-primary-color;
+  transition: all 1s ease-out;
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+      0 0 50px rgba(255, 255, 255, 0.8), 0 0 75px rgba(255, 255, 255, 0.6),
+      0 0 76px rgba(255, 255, 255, 0.4), 0 0 77px rgba(255, 255, 255, 0.5),
+      0 0 78px rgba(255, 255, 255, 0.4), 0 0 79px rgba(255, 255, 255, 0.3),
+      0 0 80px rgba(255, 255, 255, 0.2), 0 0 85px rgba(255, 255, 255, 0.1);
+  }
+}

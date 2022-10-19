@@ -1,0 +1,150 @@
+@use "../global" as *;
+
+.single-work {
+  @include container;
+  max-width: 1250px;
+  padding-top: 200px;
+  margin-bottom: 150px;
+  &__title {
+    @include single-title;
+    margin-bottom: 50px;
+    @include mq(sm) {
+      margin-bottom: 75px;
+    }
+    @include mq(md) {
+      margin-bottom: 100px;
+    }
+    @include mq(lg) {
+      margin-bottom: 125px;
+    }
+  }
+  &__wrapper {
+    @include mq(lg) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__img {
+    text-align: center;
+    & img {
+      width: 93vw;
+      height: 65.77vw;
+      object-fit: cover;
+      @include mq(lg) {
+        width: 50vw;
+        height: 35.36vw;
+      }
+      @include mq(xl) {
+        width: 600px;
+        height: 424px;
+      }
+    }
+  }
+  &__container {
+    line-height: 2;
+    @include mq(lg) {
+      width: 500px;
+      padding-left: 20px;
+    }
+  }
+  &__detail {
+    font-size: 2rem;
+    font-weight: 300;
+    border-bottom: solid 2px $text-primary-color;
+    margin: 20px 0 10px;
+    @include mq(sm) {
+      font-size: 2.1rem;
+    }
+    @include mq(md) {
+      font-size: 2.2rem;
+    }
+    @include mq(lg) {
+      margin-top: 0;
+    }
+  }
+  &__recommend {
+    font-size: 2rem;
+    font-weight: 300;
+    border-bottom: solid 2px $text-primary-color;
+    margin: 20px 0 10px;
+    @include mq(sm) {
+      font-size: 2.1rem;
+    }
+    @include mq(md) {
+      font-size: 2.2rem;
+    }
+  }
+  &__box {
+    display: flex;
+  }
+  &__item {
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  &__content-title {
+    font-size: 2.2rem;
+    border-bottom: solid 2px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    @include mq(sm) {
+      font-size: 2.4rem;
+    }
+    @include mq(md) {
+      font-size: 2.6rem;
+    }
+    @include mq(lg) {
+      font-size: 2.8rem;
+      margin-top: 100px;
+      margin-bottom: 40px;
+    }
+    @include mq(xl) {
+      font-size: 3rem;
+    }
+  }
+  &__content-box {
+    @include mq(lg) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__summary-img {
+    text-align: center;
+    & img {
+      width: 93vw;
+      height: 62vw;
+      object-fit: cover;
+      @include mq(lg) {
+        width: 45vw;
+        height: 30vw;
+      }
+      @include mq(xl) {
+        width: 520px;
+        height: 346.6px;
+      }
+    }
+  }
+  &__summary-box {
+    @include mq(lg) {
+      padding-left: 50px;
+    }
+  }
+  &__summary-title {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    @include mq(sm) {
+      font-size: 2.1rem;
+    }
+    @include mq(md) {
+      font-size: 2.2rem;
+    }
+    @include mq(lg) {
+      font-size: 2.3rem;
+      margin-top: 0;
+    }
+    @include mq(xl) {
+      font-size: 2.4rem;
+    }
+  }
+}

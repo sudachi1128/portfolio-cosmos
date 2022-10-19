@@ -1,0 +1,75 @@
+@use "../global" as *;
+
+.error {
+  @include container;
+  height: 115vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq(sm) {
+    height: 100vh;
+  }
+  &__wrapper {
+    text-align: center;
+  }
+  &__title-en {
+    font-size: 11rem;
+    font-family: "Cormorant Infant", serif;
+    color: $text-secondary-color;
+    line-height: 0.85;
+    @include mq(sm) {
+      font-size: 12rem;
+    }
+    @include mq(md) {
+      font-size: 13rem;
+    }
+    @include mq(lg) {
+      font-size: 14rem;
+    }
+  }
+  &__text-en {
+    font-size: 1.9rem;
+    font-family: "Cormorant Infant", serif;
+    color: $text-secondary-color;
+    @include mq(sm) {
+      font-size: 2rem;
+    }
+    @include mq(md) {
+      font-size: 2.1rem;
+    }
+    @include mq(lg) {
+      font-size: 2.2rem;
+    }
+  }
+  &__title-ja {
+    font-size: 1.95rem;
+    line-height: 1.4;
+    margin: 20px 0;
+    @include mq(sm) {
+      font-size: 2.4rem;
+    }
+    @include mq(md) {
+      font-size: 2.5rem;
+    }
+    @include mq(lg) {
+      font-size: 2.6rem;
+    }
+  }
+  &__text-ja {
+    margin-bottom: 50px;
+    text-align: left;
+    @include mq(sm) {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    @include mq(md) {
+      margin-bottom: 70px;
+    }
+    @include mq(lg) {
+      margin-bottom: 80px;
+    }
+  }
+  &__btn {
+    @include btn;
+  }
+}

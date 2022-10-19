@@ -1,0 +1,14 @@
+// 色
+$primary-color: #000d1a;
+$secondary-color: #fdca1d;
+$text-primary-color: #ffffff;
+$text-secondary-color: #d5a300;
+
+//ブレイクポイント
+$breakpoints: (
+  "sm": "screen and (min-width: 600px)",
+  "md": "screen and (min-width: 821px)",
+  "lg": "screen and (min-width: 950px)",
+  "xl": "screen and (min-width: 1150px)",
+  "xxl": "screen and (min-width: 1350px)",
+);

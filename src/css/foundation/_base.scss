@@ -1,0 +1,29 @@
+@use "../global" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+// 1em＝「文字の高さ」となります。たとえば、0.1emだと「文字の高さの1/10の大きさ」の字間ができるということになります。0.5emだと「文字の高さの1/2の大きさ」の字間ができるということですね。
+// remはCSSにおけるhtmlタグの文字サイズを基準とする相対的な文字サイズ指定の単位で、親要素の影響を受けないため個々の要素のサイズ設定を把握しやすく、htmlタグの文字サイズ設定(今回は62.5%)を変更することでサイト全体の文字サイズ調整を行うことも可能です。
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $text-primary-color;
+  background-color: $primary-color;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 200;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
