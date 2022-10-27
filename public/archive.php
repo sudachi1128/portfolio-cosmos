@@ -17,8 +17,8 @@
             <li class="archive__item">
               <a class="archive__link" href="<?php the_permalink(); ?>">
                 <div class="archive__date-box">
-                  <div class="archive__date-small"><?php the_time(get_option('date_format')); ?></div>
-                  <div class="archive__date-big"><?php the_time('md'); ?></div>
+                  <time class="archive__date-small"><?php the_time(get_option('date_format')); ?></time>
+                  <time class="archive__date-big"><?php the_time('md'); ?></time>
                 </div>
                 <div class="archive__flame">
                   <div class="archive__flame-inner">

@@ -105,8 +105,8 @@
             <li class="news__item">
               <a class="news__link" href="<?php the_permalink(); ?>">
                 <div class="news__date-box">
-                  <div class="news__date-small"><?php the_time(get_option('date_format')); ?></div>
-                  <div class="news__date-big"><?php the_time('md'); ?></div>
+                  <time class="news__date-small"><?php the_time(get_option('date_format')); ?></time>
+                  <time class="news__date-big"><?php the_time('md'); ?></time>
                 </div>
                 <div class="news__flame">
                   <div class="news__flame-inner">
@@ -128,7 +128,7 @@
       <div class="contact__background">
         <h1 class="contact__title js-title-animation">Contact</h1>
         <p class="contact__text">何かご不明点ございましたらお問い合わせください。また大人数(20名以上)での来場につきましては、事前にご連絡いただけますとスムーズにご案内することができます。</p>
-        <a href="<?php echo esc_url(get_page_link(15)); ?>" class="contact__btn">Contact</a>
+        <a href="<?php echo esc_url(home_url('contact')); ?>" class="contact__btn">Contact</a>
       </div>
     </section>
     <section class="access">

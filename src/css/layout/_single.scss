@@ -8,6 +8,7 @@
     @include single-title;
   }
   &__date {
+    display: block;
     text-align: center;
     margin-bottom: 50px;
     @include mq(sm) {

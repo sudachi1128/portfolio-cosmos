@@ -11,6 +11,41 @@
 //   return $sep;
 // });
 
+
+// ****************
+// セキュリティ対策
+// ****************
+
+// 投稿者一覧ページを自動で生成されないようにする
+add_filter('author_rewrite_rules', '__return_empty_array');
+
+// /?author=1 などでアクセスしたらリダイレクトさせる
+// @see https://www.webdesignleaves.com/pr/wp/wp_user_enumeration.html
+if (!is_admin()) {
+  // default URL format
+  if (preg_match('/author=([0-9]*)/i', $_SERVER['QUERY_STRING'])) die();
+  add_filter('redirect_canonical', 'my_shapespace_check_enum', 10, 2);
+}
+function my_shapespace_check_enum($redirect, $request)
+{
+  // permalink URL format
+  if (preg_match('/\?author=([0-9]*)(\/*)/i', $request)) die();
+  else return $redirect;
+}
+
+// WordPress REST API によるユーザー情報を隠す
+function my_filter_rest_endpoints($endpoints)
+{
+  if (isset($endpoints['/wp/v2/users'])) {
+    unset($endpoints['/wp/v2/users']);
+  }
+  if (isset($endpoints['/wp/v2/users/(?P<id>[\d]+)'])) {
+    unset($endpoints['/wp/v2/users/(?P<id>[\d]+)']);
+  }
+  return $endpoints;
+}
+add_filter('rest_endpoints', 'my_filter_rest_endpoints', 10, 1);
+
 // javascriptとcssの読み込み
 add_action('wp_enqueue_scripts', function () {
   // cssの読み込み(style.css)
