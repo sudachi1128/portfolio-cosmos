@@ -49,7 +49,7 @@
                 <div class="single-work__summary-img"><img src="<?php echo esc_url($img) ?>" alt="作品概要の画像"></div>
               <?php endif; ?>
               <div class="single-work__summary-box">
-                <h2 class="single-work__summary-title"><?php the_field('summary_title') ?></h2>
+                <h3 class="single-work__summary-title"><?php the_field('summary_title') ?></h3>
                 <p class="single-work__summary-text"><?php the_field('summary_text') ?></p>
               </div>
             </div>

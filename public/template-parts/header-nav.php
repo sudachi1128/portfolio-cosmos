@@ -1,7 +1,10 @@
-<!-- ↓Googleのタグマネージャーなどを入れた時に必要 -->
-<!-- <php wp_body_open ?> -->
 <header class="header">
-  <h1 class="header__logo"><a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>"><img class="header__logo-icon" src="<?php echo esc_url(get_theme_file_uri('images/header-logo.png')); ?>" alt="ロゴ"></a></h1>
+  <?php $tag = is_home() ? 'h1' : 'div'; ?>
+  <<?php echo $tag; ?> class="header__logo">
+    <a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>">
+      <img class="header__logo-icon" src="<?php echo esc_url(get_theme_file_uri('images/header-logo.png')); ?>" alt="ロゴ">
+    </a>
+  </<?php echo $tag; ?>>
   <button class="header__hamburger">
     <span></span>
     <span></span>

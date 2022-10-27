@@ -16,7 +16,7 @@
   </section>
   <main>
     <section class="concept">
-      <h1 class="concept__title js-title-animation">Concept</h1>
+      <h2 class="concept__title js-title-animation">Concept</h2>
       <div class="concept__item">
         <div class="concept__img-wrapper">
           <div class="concept__img-flame" data-index="projector">
@@ -50,7 +50,7 @@
     </section>
     <section class="work">
       <div class="work__background">
-        <h1 class="work__title js-title-animation">Programs</h1>
+        <h2 class="work__title js-title-animation">Programs</h2>
         <div class="work__wrapper">
           <div class="work__slider">
             <ul class="work__list">
@@ -69,7 +69,7 @@
                     <a class="work__link" href="<?php the_permalink(); ?>">
                       <div class="work__box">
                         <?php the_post_thumbnail("", ["class" => "work__img", "alt" => "上映作品画像"]); ?>
-                        <h2 class="work__item-title"><?php the_title(); ?></h2>
+                        <h3 class="work__item-title"><?php the_title(); ?></h3>
                       </div>
                     </a>
                   </li>
@@ -98,22 +98,22 @@
       </div>
     </section>
     <section class="news">
-      <h1 class="news__title js-title-animation">News</h1>
+      <h2 class="news__title js-title-animation">News</h2>
       <ul class="news__list">
         <?php if (have_posts()) : ?>
           <?php while (have_posts()) : the_post(); ?>
             <li class="news__item">
               <a class="news__link" href="<?php the_permalink(); ?>">
                 <div class="news__date-box">
-                  <time class="news__date-small"><?php the_time(get_option('date_format')); ?></time>
-                  <time class="news__date-big"><?php the_time('md'); ?></time>
+                  <time class="news__date-small" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time(get_option('date_format')); ?></time>
+                  <time class=" news__date-big" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('md'); ?></time>
                 </div>
                 <div class="news__flame">
                   <div class="news__flame-inner">
                     <img class="news__item-img" src="<?php the_post_thumbnail_url(); ?>" alt="ニュース画像">
                   </div>
                 </div>
-                <h2 class="news__item-title"><?php the_title(); ?></h2>
+                <h3 class="news__item-title"><?php the_title(); ?></h3>
                 <p class="news__item-text"><?php echo esc_html(get_the_excerpt()); ?></p>
               </a>
             </li>
@@ -126,13 +126,13 @@
     </section>
     <section class="contact">
       <div class="contact__background">
-        <h1 class="contact__title js-title-animation">Contact</h1>
+        <h2 class="contact__title js-title-animation">Contact</h2>
         <p class="contact__text">何かご不明点ございましたらお問い合わせください。また大人数(20名以上)での来場につきましては、事前にご連絡いただけますとスムーズにご案内することができます。</p>
         <a href="<?php echo esc_url(home_url('contact')); ?>" class="contact__btn">Contact</a>
       </div>
     </section>
     <section class="access">
-      <h1 class="access__title js-title-animation">Access</h1>
+      <h2 class="access__title js-title-animation">Access</h2>
       <div class="access__wrapper">
         <div class="access__circle">
           <img src="<?php echo esc_url(get_theme_file_uri('images/planetarium.jpg')); ?>" alt="アクセス画像">
