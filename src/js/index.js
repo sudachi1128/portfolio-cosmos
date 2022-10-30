@@ -35,9 +35,9 @@ window.addEventListener("DOMContentLoaded", () => {
     // 頂点情報を格納する配列
     const vertices = [];
     // 配置する範囲
-    const range = 4000;
+    const range = 2400;
     // 配置する個数
-    const length = 1000;
+    const length = 180;
     for (let i = 0; i < length; i++) {
       const x = range * (Math.random() - 0.5);
       const y = range * (Math.random() - 0.5);
@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // 素材,表面(マテリアル)を作成
     const material = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 10, //サイズ
+      size: 15, //サイズ
       opacity: 0.7, //透過性の数値
       map: texture,
       alphaMap: texture,

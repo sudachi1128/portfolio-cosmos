@@ -12,7 +12,6 @@
 // });
 
 // 以下セキュリティ対策
-
 // 投稿者一覧ページを自動で生成されないようにする
 add_filter('author_rewrite_rules', '__return_empty_array');
 
@@ -142,19 +141,6 @@ add_action('init', function () {
     'show_in_rest' => true,
   ]);
 });
-
-// アイキャッチの画像がなければ、標準画像を表示する。
-function get_eye_catch()
-{
-  if (has_post_thumbnail()) {
-    $id = get_post_thumbnail_id();
-    $img = wp_get_attachment_image_src($id, 'full');
-  } else {
-    $img = array(get_theme_file_uri('images/substitute.jpeg'));
-  }
-  // 関数で変数$imgを定義した場合、関数スコープで$imgが使えなくなるのでreturnで戻り値として外でも使えるようにする。
-  return $img;
-}
 
 //概要（抜粋）の文字数調整
 add_filter('excerpt_length', function () {
