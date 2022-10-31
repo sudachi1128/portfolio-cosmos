@@ -340,59 +340,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const so = new ScrollObserver(".concept__senses", callback, { once: false });
 });
 
-// スライダースワイプイベント設定
-document.addEventListener("DOMContentLoaded", () => {
-  const work_element = document.querySelector(".work");
-  if (work_element !== null) {
-    let target = document.querySelector(".work__slider");
-    let startX; // タッチ開始 x座標
-    let startY; // タッチ開始 y座標
-    let endX; // 終了時の 座標
-    let endY; // 終了時 y座標
-    // タッチ開始時： xy座標を取得
-    target.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      startX = e.touches[0].pageX;
-      startY = e.touches[0].pageY;
-    });
-    const slide = document.querySelector(".work__list");
-    // ↓指定した要素の子要素配列
-    const slide_items = slide.children;
-    const indicator = document.querySelector(".work__indicator");
-    // ↓指定した要素の子要素配列
-    const indicator_items = indicator.children;
-    // 各配列のインデックス番号を定義
-    const first_slide_index = 0;
-    const last_slide_index = slide_items.length - 1;
-    const first_indicator_index = 0;
-    const last_indicator_index = indicator.length - 1;
-    // タッチ終了時： スワイプした距離から左右どちらにスワイプしたかを判定する&距離が短い場合何もしない
-    target.addEventListener("touchend", (e) => {
-      const first_item = slide_items.item(first_slide_index);
-      const last_item = slide_items.item(last_slide_index);
-      const first_indicator = indicator_items.item(first_indicator_index);
-      const last_indicator = indicator_items.item(last_indicator_index);
-      endX = e.changedTouches[0].pageX;
-      endY = e.changedTouches[0].pageY;
-      if (startX - 30 > endX) {
-        setTimeout(() => {
-          // 現在のノードの次の兄弟ノードを表す Node、または存在しない場合は null です。(nextSibling)
-          slide.insertBefore(first_item, last_item.nextSibling);
-          indicator.insertBefore(last_indicator, first_indicator);
-        }, 400);
-      } else if (startX + 30 < endX) {
-        setTimeout(() => {
-          slide.insertBefore(last_item, first_item);
-          indicator.insertBefore(first_indicator, last_indicator.nextSibling);
-        }, 400);
-      } else if (startY - endY < 10 && startY - endY > -10) {
-        const current_slide_item = slide_items[2].children;
-        const current_item_href = current_slide_item[0].href;
-        window.location.href = current_item_href;
-      }
-    });
-  }
-});
+// // スライダースワイプイベント設定
+// document.addEventListener("DOMContentLoaded", () => {
+//   const work_element = document.querySelector(".work");
+//   if (work_element !== null) {
+//     let target = document.querySelector(".work__slider");
+//     let startX; // タッチ開始 x座標
+//     let startY; // タッチ開始 y座標
+//     let endX; // 終了時の 座標
+//     let endY; // 終了時 y座標
+//     // タッチ開始時： xy座標を取得
+//     target.addEventListener("touchstart", (e) => {
+//       e.preventDefault();
+//       startX = e.touches[0].pageX;
+//       startY = e.touches[0].pageY;
+//     });
+//     const slide = document.querySelector(".work__list");
+//     // ↓指定した要素の子要素配列
+//     const slide_items = slide.children;
+//     const indicator = document.querySelector(".work__indicator");
+//     // ↓指定した要素の子要素配列
+//     const indicator_items = indicator.children;
+//     // 各配列のインデックス番号を定義
+//     const first_slide_index = 0;
+//     const last_slide_index = slide_items.length - 1;
+//     const first_indicator_index = 0;
+//     const last_indicator_index = indicator.length - 1;
+//     // タッチ終了時： スワイプした距離から左右どちらにスワイプしたかを判定する&距離が短い場合何もしない
+//     target.addEventListener("touchend", (e) => {
+//       const first_item = slide_items.item(first_slide_index);
+//       const last_item = slide_items.item(last_slide_index);
+//       const first_indicator = indicator_items.item(first_indicator_index);
+//       const last_indicator = indicator_items.item(last_indicator_index);
+//       endX = e.changedTouches[0].pageX;
+//       endY = e.changedTouches[0].pageY;
+//       if (startX - 30 > endX) {
+//         setTimeout(() => {
+//           // 現在のノードの次の兄弟ノードを表す Node、または存在しない場合は null です。(nextSibling)
+//           slide.insertBefore(first_item, last_item.nextSibling);
+//           indicator.insertBefore(last_indicator, first_indicator);
+//         }, 400);
+//       } else if (startX + 30 < endX) {
+//         setTimeout(() => {
+//           slide.insertBefore(last_item, first_item);
+//           indicator.insertBefore(first_indicator, last_indicator.nextSibling);
+//         }, 400);
+//       } else if (startY - endY < 10 && startY - endY > -10) {
+//         const current_slide_item = slide_items[2].children;
+//         const current_item_href = current_slide_item[0].href;
+//         window.location.href = current_item_href;
+//       }
+//     });
+//   }
+// });
 
 // スライダーイベント
 document.addEventListener("DOMContentLoaded", () => {
