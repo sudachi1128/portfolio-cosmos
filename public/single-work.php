@@ -58,7 +58,6 @@
       <?php endif; ?>
     </section>
   </main>
-
   <?php get_template_part('template-parts/footer-nav'); ?>
   <?php get_footer(); ?>
 </body>
